@@ -1,0 +1,21 @@
+<script>
+	var guess, answer, message;
+
+	guess = prompt("How many countries have I visited?");
+	answer = 14;
+
+	if (isNaN(guess)) {
+		guess = prompt("I'm sorry, that guess was not a number. Please choose a number and try again.");
+	}
+
+	if (guess == answer) {
+		message = "You are correct!";
+	} else if (guess < answer){
+		message = "I'm sorry, you guessed too few countries.";
+	} else {
+		message = "I'm sorry, you guessed too many countries.";
+	}
+
+	alert(message);
+
+</script>
