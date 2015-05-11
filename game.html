@@ -1,8 +1,9 @@
 <script>
-	var guess, answer, message;
+	var guess, answer, message, guess2, countries, message2;
 
 	guess = prompt("How many countries have I visited?");
 	answer = 14;
+	countries = ["UNITED STATES", "CANADA", "MEXICO", "UNITED KINGDOM", "DENMARK", "BELGIUM", "HOLLAND", "GERMANY", "FRANCE", "ITALY", "HONG KONG", "SOUTH KOREA", "AUSTRALIA", "NEW ZEALAND"];
 
 	if (isNaN(guess)) {
 		guess = prompt("I'm sorry, that guess was not a number. Please choose a number and try again.");
@@ -17,5 +18,23 @@
 	}
 
 	alert(message);
+
+	var country = 0;
+	if (message === "You are correct!")	{
+		guess2 = prompt("Can you guess a country I have visited?").toUpperCase();
+		console.log(guess2);
+		for (var i = 0; i < countries.length; i++) {
+			if (guess2 === countries[i]) {
+				country += 1;
+			} 
+		}
+		console.log(country);
+		if (country === 1) {
+			message2 = "You are correct again!";
+		} else {
+			message2 = "I have not visited that country.";
+		}
+		alert(message2);
+	}
 
 </script>
