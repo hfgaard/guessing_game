@@ -2,26 +2,38 @@
 
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Guessing Game</title>
+    <meta name="description" content="country guessing game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>Welcome to the Country Guessing Game</h1>
-    <h2>Instructions</h2>
-    <p>In this game, you have to guess either the number of countries or the name of a country that have been visited. You can either choose to use the countries that I have visited or you can input your own countries and challange a friend.</p>
-    <figure>
-      <img src="http://geology.com/world/world-map.gif" alt="Map of the world with country names." />
+    <header>
+      <h1>Welcome to the Country Guessing Game</h1>
+    </header>
+    <main>
+      <h2>Instructions</h2>
+      <p>In this game, you have to guess either the number of countries or the name of a country that have been visited. You can either choose to use the countries that I have visited or you can input your own countries and challange a friend.</p>
+      <figure>
+        <img src="http://geology.com/world/world-map.gif" alt="Map of the world with country names." />
+        <p>
+          <figcaption>Here is a map to help you with guessing the names of counties!</figcaption>
+        </p>
+      </figure>
+      <h2>High Scores</h2>
+      <ol>
+        <li>John</li>
+        <li>Sally</li>
+        <li>Wendy</li>
+      </ol>
+    </main>
+    <footer>
       <p>
-        <figcaption>Here is a map to help you with guessing the names of counties!</figcaption>
+        <a href="http://traveltip.org/countries_visited.php" target="_blank">Check out how many countries you have visited!</a> (opens in a new window)
       </p>
-    </figure>
-    <h3>High Scores</h3>
-    <ol>
-      <li>John</li>
-      <li>Sally</li>
-      <li>Wendy</li>
-    </ol>
-    <a href="http://traveltip.org/countries_visited.php" target="_blank">Check out how many countries you have visited!</a> (opens in a new window)
-    <script>
+    </footer>
+    <script type="text/javascript">
       window.onload = function() {
         function Game() {
           this.hanasCountries = ["UNITED STATES", "CANADA", "MEXICO", "UNITED KINGDOM", "DENMARK", "BELGIUM", "NETHERLANDS", "GERMANY", "FRANCE", "ITALY", "HONG KONG", "SOUTH KOREA", "AUSTRALIA", "NEW ZEALAND, BAHAMAS, SWITZERLAND"];
