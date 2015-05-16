@@ -18,9 +18,26 @@
       <figure>
         <img src="http://geology.com/world/world-map.gif" alt="Map of the world with country names." />
         <p>
-          <figcaption>Here is a map to help you with guessing the names of counties!</figcaption>
+          <figcaption>Here is a map to help you with guessing the names of countries!</figcaption>
         </p>
       </figure>
+      <h2>Play the Game!</h2> 
+      <h3 id='question'></h3>
+      <p id='choice'></p>
+      <input id='countries-list' type='text'>
+      <button type='button' id='game-start'>Go</button>
+      <h3>What countries have you visited?</h3>
+      <p id='new-countries'>Please provide a list of countries you have visitied, separated by commas and spaces. (ex: 'Indonesia, Peru')</p>
+      <input id='user-list' type='text'>
+      <button type='button' id='user-countries'>Go</button>
+      <h3>Guess by Name of Countries</h3>
+      <p id='countries-message'>Can you guess a country that has been visited?</p>
+      <input id='country-input' type="text">
+      <button type="button" id="countries-start">Go</button>
+      <h3>Guess by Number of Countries</h3>
+      <p id='number-message'>Can you guess the number of countries that have been visited?</p>
+      <input id='number-input' type="text">
+      <button type="button" id="number-start">Go</button>
       <h2>High Scores</h2>
       <ol>
         <li>John</li>
@@ -33,104 +50,6 @@
         <a href="http://traveltip.org/countries_visited.php" target="_blank">Check out how many countries you have visited!</a> (opens in a new window)
       </p>
     </footer>
-    <script type="text/javascript">
-      window.onload = function() {
-        function Game() {
-          this.hanasCountries = ["UNITED STATES", "CANADA", "MEXICO", "UNITED KINGDOM", "DENMARK", "BELGIUM", "NETHERLANDS", "GERMANY", "FRANCE", "ITALY", "HONG KONG", "SOUTH KOREA", "AUSTRALIA", "NEW ZEALAND, BAHAMAS, SWITZERLAND"];
-
-          // Prompts the user to add countries they have been to. Returns an array of their visited countries.
-          this.getCountries = function () {
-            var userCountries = prompt("What countries have you been to? Enter as many as you want, separated by commas and spaces. (ex: 'Indonesia, Peru'");
-            return userCountries.toUpperCase().split(", ");
-          }
-
-          this.pickCountryArray = function () {
-            var choice = "";
-            while (choice.charAt(0).toLowerCase() != "h" && choice.charAt(0).toLowerCase() != "m") {
-              choice = prompt("I've been to so many countries! But maybe you want to challenge your friends? Type 'Hana' if you want to guess what countries I've been to, or 'mine' if you want to input your own list!");
-            }
-
-            return choice.charAt(0).toLowerCase();
-          }
-
-          this.playGame = function() {
-            var gamePlay = true;
-            while (gamePlay) {
-              var countries;
-              // Returns "h" if user wants to guess Hana's countries, or "m" if they want to challenge a friend.
-              var arrayType = this.pickCountryArray();
-              if (arrayType == "h") {
-                countries = this.hanasCountries;
-              }
-              else if (arrayType == "m") {
-                countries = this.getCountries();
-              }
-              // Returns "c" if user wants to guess by country names or "n" if by number of countries.
-              var choice = this.chooseGame();
-              if (choice == "c") {
-                this.guessCountries(countries);
-              }
-              else if (choice == "n") {
-                this.guessNumber(countries);
-              }
-              gamePlay = confirm("Do you want to try again?");
-            }
-          }
-
-          // Takes as input an array of countries, prompts user to guess the number of countries.
-          this.guessNumber = function(countries) {
-            var message, answer, guess;
-            //Prompts user to guess how many countries.
-            guess = prompt("How many countries have I visited?");
-            // Checks if the user's guess is a number.
-            answer = countries.length;
-            if (isNaN(guess)) {
-              guess = prompt("I'm sorry, that guess was not a number. Please choose a number and try again.");
-            }
-            // Checks if the user's guess is correct.
-            if (guess == answer) {
-              message = "You are correct!";
-            } else if (guess < answer) {
-              message = "I'm sorry, you guessed too few countries.";
-            } else {
-              message = "I'm sorry, you guessed too many countries.";
-            }
-            alert(message);
-          }
-
-          // Takes as input an array of countries, prompts user to guess one.
-          this.guessCountries = function(countries) {
-            var message, answer, guess;
-            var country = 0;
-
-            guess = prompt("Can you guess a country I have visited?").toUpperCase();
-            for (var i = 0; i < countries.length; i++) {
-              if (guess === countries[i]) {
-                country += 1;
-              }
-            }
-            if (country === 1) {
-              message = "You are correct!";
-            }
-            else {
-              message = "I have not visited that country.";
-            }
-            alert(message);
-          }
-
-          this.chooseGame = function() {
-            var choice = "";
-            while (choice.charAt(0).toLowerCase() != "n" && choice.charAt(0).toLowerCase() != "c") {
-              choice = prompt("Type 'countries' if you want to guess by name, or 'number' if you want to guess the total!");
-            }
-            return choice.charAt(0).toLowerCase();
-          }
-        }
-
-        // Plays the game, prompts the user if they want to play again.
-        var game = new Game();
-        game.playGame();
-      }
-    </script>
+    <script src="game2.js"></script>
   </body>
 </html>
